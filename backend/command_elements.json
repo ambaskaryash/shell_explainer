@@ -1,0 +1,497 @@
+{
+  "ls": {
+    "description": "List information about files and directories.",
+    "flags": {
+      "-l": "Use a long listing format.",
+      "-a": "Include directory entries whose names begin with a dot (.).",
+      "-h": "Print sizes in human readable format (e.g., 1K 234M 2G).",
+      "--color": "Colorize the output.",
+      "-R": "Recursively list subdirectories."
+    },
+    "usage": [
+      "ls -l                 # List files with detailed information",
+      "ls -a                 # Show all files including hidden ones",
+      "ls -lhR               # Long listing, human-readable sizes, recursively"
+    ]
+  },
+  "grep": {
+    "description": "Search for patterns in files using regular expressions.",
+    "flags": {
+      "-i": "Ignore case distinctions in patterns and input data.",
+      "-r": "Read all files under each directory recursively.",
+      "-v": "Invert match to select non-matching lines.",
+      "-c": "Print only a count of matching lines per file.",
+      "-n": "Print line number with output lines."
+    },
+    "usage": [
+      "grep 'error' logfile.txt             # Search 'error' in logfile.txt",
+      "grep -ir 'failed' /var/log           # Case-insensitive recursive search",
+      "grep -v 'success' logfile.txt       # Show lines not containing 'success'"
+    ]
+  },
+  "tar": {
+    "description": "Archive or extract files from an archive file called a tarball.",
+    "flags": {
+      "x": "Extract files from an archive.",
+      "z": "Filter the archive through gzip compression.",
+      "v": "Verbosity: list files processed.",
+      "f": "Use archive file or device ARCHIVE.",
+      "-C": "Change to directory DIR before performing any operations."
+    },
+    "usage": [
+      "tar czvf archive.tar.gz folder/         # Create gzipped archive of folder",
+      "tar xzvf archive.tar.gz                  # Extract archive contents",
+      "tar -tf archive.tar.gz                   # List contents of archive"
+    ]
+  },
+  "curl": {
+    "description": "Transfer data from or to a server using various protocols.",
+    "flags": {
+      "-I": "Fetch the HTTP header only.",
+      "-L": "Follow redirects.",
+      "-X": "Specify custom request method.",
+      "-d": "Send specified data in POST request.",
+      "-H": "Pass custom header(s) to the server."
+    },
+    "usage": [
+      "curl -I https://example.com              # Fetch HTTP headers",
+      "curl -L http://example.com               # Follow redirects",
+      "curl -X POST -d 'key=value' http://api  # POST data with custom method"
+    ]
+  },
+  "systemctl": {
+    "description": "Control and manage systemd services and the system state.",
+    "flags": {
+      "status": "Check the status of a service.",
+      "start": "Start a service.",
+      "stop": "Stop a service.",
+      "restart": "Restart a service.",
+      "enable": "Enable a service to start on boot.",
+      "disable": "Disable a service from starting on boot."
+    },
+    "usage": [
+      "systemctl status nginx                   # Check nginx service status",
+      "systemctl start sshd                     # Start SSH service",
+      "systemctl enable docker                  # Enable Docker to start at boot"
+    ]
+  },
+  "mkdir": {
+    "description": "Create directories with the specified names.",
+    "flags": {
+      "-p": "Create parent directories as needed.",
+      "-m": "Set file mode (permissions) of the new directory.",
+      "--help": "Show help information."
+    },
+    "usage": [
+      "mkdir new_folder                         # Create directory",
+      "mkdir -p /tmp/folder/subfolder           # Create nested directories",
+      "mkdir -m 755 mydir                       # Create directory with permissions"
+    ]
+  },
+  "rm": {
+    "description": "Remove files or directories.",
+    "flags": {
+      "-r": "Remove directories and their contents recursively.",
+      "-f": "Ignore nonexistent files and arguments, never prompt.",
+      "-i": "Prompt before every removal."
+    },
+    "usage": [
+      "rm file.txt                             # Remove a file",
+      "rm -rf /tmp/tempdir                     # Remove directory and contents",
+      "rm -i important_file                    # Prompt before removal"
+    ]
+  },
+  "ps": {
+    "description": "Display information about active processes.",
+    "flags": {
+      "-e": "Select all processes.",
+      "-f": "Full-format listing.",
+      "-u": "Select by user."
+    },
+    "usage": [
+      "ps -ef                                 # Full list of all processes",
+      "ps -u username                         # Processes for a user",
+      "ps -e | grep sshd                      # Find sshd process"
+    ]
+  },
+  "chmod": {
+    "description": "Change the file mode (permissions) of files or directories.",
+    "flags": {
+      "-R": "Change files and directories recursively.",
+      "--reference": "Use permissions from reference file."
+    },
+    "usage": [
+      "chmod 755 script.sh                    # Set permissions on a file",
+      "chmod -R 644 /var/www/html             # Change permissions recursively",
+      "chmod --reference=existingfile newfile  # Set permissions to match another file"
+    ]
+  },
+  "chown": {
+    "description": "Change file owner and group.",
+    "flags": {
+      "-R": "Operate on files and directories recursively.",
+      "-v": "Output a diagnostic for every file processed."
+    },
+    "usage": [
+      "chown user file.txt                    # Change owner of file",
+      "chown -R user:group /var/www/html     # Change owner and group recursively",
+      "chown -v user file.txt                 # Verbose output"
+    ]
+  },
+  "df": {
+    "description": "Report disk space usage of file systems.",
+    "flags": {
+      "-h": "Print sizes in human readable format.",
+      "-T": "Show file system type.",
+      "--total": "Produce a grand total."
+    },
+    "usage": [
+      "df -h                                 # Human-readable disk usage",
+      "df -T                                 # Show file system type",
+      "df --total                            # Show total disk usage"
+    ]
+  },
+  "du": {
+    "description": "Estimate file and directory space usage.",
+    "flags": {
+      "-h": "Show sizes in human readable format.",
+      "-s": "Display only a total for each argument.",
+      "--max-depth": "Limit the depth of directory tree.",
+      "-a": "Write counts for all files, not just directories."
+    },
+    "usage": [
+      "du -h /var/log                        # Show folder size human readable",
+      "du -sh *                            # Show size of each item in current folder",
+      "du --max-depth=1 /home               # Limit depth to 1 level"
+    ]
+  },
+  "find": {
+    "description": "Search for files in a directory hierarchy.",
+    "flags": {
+      "-name": "Search for files by name.",
+      "-type": "Search by file type.",
+      "-exec": "Execute command on found files.",
+      "-mtime": "Find files modified n days ago.",
+      "-print0": "Print file names followed by a null character, safe for piping."
+    },
+    "usage": [
+      "find . -type f -print0                 # Find all regular files, null separated",
+      "find /var/log -name '*.log'            # Find .log files in /var/log",
+      "find /tmp -mtime -7                    # Find files modified in last 7 days"
+    ]
+  },
+  "ssh": {
+    "description": "Open a secure shell (SSH) connection to a remote host.",
+    "flags": {
+      "-p": "Specify port to connect to on the remote host.",
+      "-i": "Select identity (private key) file.",
+      "-v": "Verbose mode.",
+      "-X": "Enable X11 forwarding."
+    },
+    "usage": [
+      "ssh user@host                         # Connect to remote host",
+      "ssh -p 2222 user@host                 # Connect to port 2222",
+      "ssh -i ~/.ssh/id_rsa user@host        # Connect using specific key"
+    ]
+  },
+  "docker": {
+    "description": "Manage Docker containers and images.",
+    "flags": {
+      "run": "Run a command in a new container.",
+      "build": "Build an image from a Dockerfile.",
+      "pull": "Download an image from a registry.",
+      "push": "Upload an image to a registry.",
+      "ps": "List running containers.",
+      "-d": "Run container in detached mode (background).",
+      "-p": "Publish container's port(s) to the host."
+    },
+    "usage": [
+      "docker run -d -p 80:80 nginx           # Run nginx container in background",
+      "docker build -t myimage .              # Build image from Dockerfile",
+      "docker ps                             # List running containers"
+    ]
+  },
+  "docker-compose": {
+    "description": "Define and run multi-container Docker applications.",
+    "flags": {
+      "up": "Create and start containers.",
+      "down": "Stop and remove containers, networks, images.",
+      "build": "Build or rebuild services.",
+      "logs": "View output from containers.",
+      "-d": "Run in detached mode.",
+      "--build": "Build images before starting containers."
+    },
+    "usage": [
+      "docker-compose up -d                    # Start containers in background",
+      "docker-compose build                    # Build or rebuild services",
+      "docker-compose logs                     # View logs of containers"
+    ]
+  },
+  "kubectl": {
+    "description": "Control the Kubernetes cluster manager.",
+    "flags": {
+      "get": "List resources.",
+      "describe": "Show detailed info about a resource.",
+      "apply": "Apply declarative configuration to resources.",
+      "delete": "Delete resources by filename or resource name.",
+      "-n": "Specify the namespace.",
+      "-f": "Filename or directory containing resource descriptions."
+    },
+    "usage": [
+      "kubectl get pods                       # List pods in current namespace",
+      "kubectl describe service myservice    # Detailed info about a service",
+      "kubectl apply -f deployment.yaml      # Apply configuration file"
+    ]
+  },
+  "ansible": {
+    "description": "Automate configuration management, application deployment and task execution.",
+    "flags": {
+      "-i": "Specify inventory host file.",
+      "-m": "Module name to execute.",
+      "-a": "Module arguments.",
+      "--check": "Run in dry-run mode without making changes.",
+      "--diff": "Show changes made by tasks."
+    },
+    "usage": [
+      "ansible all -m ping -i hosts.ini       # Test connectivity",
+      "ansible-playbook site.yaml             # Run playbook",
+      "ansible all -m shell -a 'uptime'       # Run uptime on all hosts"
+    ]
+  },
+  "gh": {
+    "description": "GitHub command-line tool to manage GitHub operations.",
+    "flags": {
+      "repo": "Manage GitHub repositories.",
+      "issue": "Manage GitHub issues.",
+      "pr": "Manage GitHub pull requests.",
+      "auth": "Authenticate with GitHub.",
+      "clone": "Clone a repository.",
+      "create": "Create a new repository or gist.",
+      "-R": "Specify the repository.",
+      "--web": "Open resource in web browser."
+    },
+    "usage": [
+      "gh repo clone owner/repo                 # Clone a GitHub repo",
+      "gh issue list                            # List issues",
+      "gh pr create                            # Create a pull request"
+    ]
+  },
+  "helm": {
+    "description": "Manage Kubernetes Helm charts for package management.",
+    "flags": {
+      "install": "Install a Helm chart.",
+      "upgrade": "Upgrade a release.",
+      "rollback": "Roll back a release to a previous revision.",
+      "list": "List releases.",
+      "-f": "Specify values in a YAML file or URL.",
+      "--namespace": "Set the namespace scope for the request."
+    },
+    "usage": [
+      "helm install myrelease mychart            # Install a chart",
+      "helm upgrade myrelease mychart            # Upgrade a chart",
+      "helm rollback myrelease 1                 # Roll back to revision 1"
+    ]
+  },
+  "top": {
+    "description": "Display Linux tasks and resource usage.",
+    "flags": {
+      "-d": "Set delay between screen updates.",
+      "-p": "Monitor specific process IDs.",
+      "-u": "Display processes for a specific user."
+    },
+    "usage": [
+      "top                                     # Show running processes",
+      "top -d 5                                # Update every 5 seconds",
+      "top -u root                            # Show processes for root user"
+    ]
+  },
+  "htop": {
+    "description": "Interactive process viewer and manager.",
+    "flags": {
+      "-d": "Set delay between updates.",
+      "-p": "Monitor specific process IDs.",
+      "-u": "Filter by user."
+    },
+    "usage": [
+      "htop                                    # Open interactive process viewer",
+      "htop -p 1234                            # Monitor PID 1234",
+      "htop -u root                           # Filter by root user"
+    ]
+  },
+  "strace": {
+    "description": "Trace system calls and signals.",
+    "flags": {
+      "-p": "Trace a running process by PID.",
+      "-e": "Filter to trace specified system calls.",
+      "-o": "Write trace output to the specified file."
+    },
+    "usage": [
+      "strace -p 1234                          # Trace process with PID 1234",
+      "strace -e open,read,write ls            # Trace specific syscalls during ls",
+      "strace -o output.txt ls                  # Save output to a file"
+    ]
+  },
+  "lsof": {
+    "description": "List open files.",
+    "flags": {
+      "-i": "Show files related to Internet connections.",
+      "-p": "List open files for a process ID.",
+      "-n": "Do not resolve hostnames."
+    },
+    "usage": [
+      "lsof -i                                # List open Internet connections",
+      "lsof -p 1234                          # List open files for PID 1234",
+      "lsof -n                               # Show numeric addresses without DNS"
+    ]
+  },
+  "netstat": {
+    "description": "Print network connections, routing tables, interface statistics.",
+    "flags": {
+      "-t": "Show TCP connections.",
+      "-u": "Show UDP connections.",
+      "-l": "Show listening sockets.",
+      "-p": "Show process ID using socket."
+    },
+    "usage": [
+      "netstat -tulnp                       # Show all listening TCP/UDP ports with process IDs",
+      "netstat -r                          # Show routing table",
+      "netstat -i                          # Show network interfaces"
+    ]
+  },
+  "ip": {
+    "description": "Show/manipulate routing, devices, policy routing and tunnels.",
+    "flags": {
+      "addr": "Show/manipulate IP addresses.",
+      "link": "Show/manipulate network interfaces.",
+      "route": "Show/manipulate routing tables."
+    },
+    "usage": [
+      "ip addr show                        # Show IP addresses",
+      "ip link set eth0 up                 # Enable interface eth0",
+      "ip route add default via 192.168.1.1 # Add default route"
+    ]
+  },
+  "journalctl": {
+    "description": "Query and display messages from the journal.",
+    "flags": {
+      "-u": "Show logs for a specific systemd unit.",
+      "-f": "Follow the journal.",
+      "-n": "Show last N lines."
+    },
+    "usage": [
+      "journalctl -u nginx.service          # Show logs for nginx",
+      "journalctl -f                      # Follow logs live",
+      "journalctl -n 100                  # Show last 100 lines"
+    ]
+  },
+  "ss": {
+    "description": "Dump socket statistics.",
+    "flags": {
+      "-t": "Display TCP sockets.",
+      "-u": "Display UDP sockets.",
+      "-p": "Show process using socket.",
+      "-l": "Show listening sockets."
+    },
+    "usage": [
+      "ss -tulnp                         # Show all listening TCP/UDP ports with process info",
+      "ss -s                            # Summary statistics"
+    ]
+  },
+  "uptime": {
+    "description": "Show how long the system has been running.",
+    "flags": {},
+    "usage": [
+      "uptime                           # Display current time, uptime, users, and load average"
+    ]
+  },
+  "free": {
+    "description": "Display amount of free and used memory in the system.",
+    "flags": {
+      "-h": "Show memory in human-readable format.",
+      "-m": "Display memory in megabytes."
+    },
+    "usage": [
+      "free -h                         # Show memory usage with human readable units",
+      "free -m                         # Show memory usage in MB"
+    ]
+  },
+  "vmstat": {
+    "description": "Report virtual memory statistics.",
+    "flags": {},
+    "usage": [
+      "vmstat                          # Display memory, CPU, and IO information"
+    ]
+  },
+  "iostat": {
+    "description": "Report CPU and device I/O statistics.",
+    "flags": {
+      "-x": "Display extended statistics.",
+      "-d": "Display device utilization."
+    },
+    "usage": [
+      "iostat -x                      # Extended IO statistics",
+      "iostat -d                      # Show device utilization"
+    ]
+  },
+  "tcpdump": {
+    "description": "Command-line packet analyzer.",
+    "flags": {
+      "-i": "Listen on a specific interface.",
+      "-n": "Do not resolve hostnames.",
+      "-c": "Stop after capturing N packets.",
+      "-w": "Write raw packets to file."
+    },
+    "usage": [
+      "tcpdump -i eth0 -n -c 10       # Capture 10 packets on eth0 without resolving names",
+      "tcpdump -w packets.pcap         # Write packets to file"
+    ]
+  },
+  "watch": {
+    "description": "Run a program periodically, showing output fullscreen.",
+    "flags": {
+      "-n": "Set interval between command executions.",
+      "-d": "Highlight differences between updates."
+    },
+    "usage": [
+      "watch -n 5 'ls -l'              # Run ls -l every 5 seconds",
+      "watch -d 'cat /proc/meminfo'    # Highlight changes in memory info"
+    ]
+  },
+  "windows": {
+    "description": "Windows commands and utilities.",
+    "flags": {},
+    "usage": [
+      "dir                            # List directory contents",
+      "ipconfig                      # Display IP configuration",
+      "tasklist                     # List running processes",
+      "netstat -an                  # Show all active connections and listening ports"
+    ]
+  },
+  "powershell": {
+    "description": "PowerShell commands.",
+    "flags": {},
+    "usage": [
+      "Get-Process                  # List all running processes",
+      "Get-Service                  # List system services",
+      "Set-ExecutionPolicy         # Change script execution policies"
+    ]
+  },
+  "macos": {
+    "description": "Common Mac OS terminal commands.",
+    "flags": {},
+    "usage": [
+      "defaults write com.apple.finder AppleShowAllFiles YES  # Show hidden files in Finder",
+      "brew install <package>                              # Install package via Homebrew",
+      "open -a Safari                                    # Open Safari browser"
+    ]
+  },
+  "shell": {
+    "description": "Common Unix/Linux shell commands.",
+    "flags": {},
+    "usage": [
+      "echo 'hello world'                              # Print text to console",
+      "history                                         # Show command history",
+      "alias ll='ls -l'                               # Create command alias"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backend:
+    image: yash119/shellbackend:latest
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    environment:
+      - SERVER_IP=65.0.193.14
+    networks:
+      - devopsnet
+
+  frontend:
+    image: yash119/shellfrontend:latest
+    ports:
+      - "8080:80"
+    environment:
+      - SERVER_IP=65.0.193.14
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - devopsnet
+
+networks:
+  devopsnet:
+    driver: bridge

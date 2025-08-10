@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Command Explorer</title>
+<link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,500,700&display=swap" rel="stylesheet" />
+<style>
+body {
+  background: #1a1e23;
+  color: #e5e5e5;
+  font-family: 'Fira Mono', monospace;
+  margin: 0;
+  min-height: 100vh;
+}
+h1 {
+  color: #57aaff;
+  font-size: 2.5em;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 32px;
+  text-shadow: 0 2px 12px rgba(80,140,255,0.25);
+}
+#main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 70px;
+}
+input[type="text"] {
+  width: 360px;
+  background: #23262b;
+  color: #d9edff;
+  border: 1px solid #333;
+  padding: 11px 14px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  margin-right: 10px;
+  outline: none;
+  transition: border 0.18s;
+}
+input[type="text"]:focus {
+  border-color: #57aaff;
+}
+button {
+  background: #57aaff;
+  color: #182631;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 11px 22px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+button:hover {
+  background: #3179b8;
+}
+pre#result {
+  background: #232a32;
+  color: #f0f0f4;
+  font-size: 1.05em;
+  margin: 48px auto;
+  width: 75%;
+  padding: 24px;
+  border-radius: 6px;
+  box-shadow: 0 2px 28px rgba(30,60,120,0.15);
+  white-space: normal;
+}
+.explain-container {
+  background: #23272d;
+  max-width: 780px;
+  margin: 48px auto 0;
+  padding: 30px 36px 36px 36px;
+  border-left: 6px solid #57aaff;
+  border-radius: 8px;
+  box-shadow: 0 4px 32px rgba(64,110,205,0.12);
+}
+.command-title {
+  font-family: 'Fira Mono', monospace;
+  color: #8ccfff;
+  font-size: 1.5em;
+  margin-bottom: 22px;
+}
+.command-description {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  color: #cccccc;
+}
+h3 {
+  color: #79aaff;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+.breakdown-block {
+  background: #1a1e23;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  padding: 12px 24px;
+  border-left: 4px solid #64d7ff;
+  box-shadow: 0 2px 10px rgba(60,120,180,0.09);
+}
+.breakdown-block .flag {
+  display: block;
+  color: #57aaff;
+  font-weight: bold;
+  font-family: 'Fira Mono', monospace;
+  margin-bottom: 4px;
+}
+.breakdown-block .desc {
+  font-size: 1em;
+  color: #e5e5e5;
+  white-space: normal;
+}
+.usage-examples {
+  background: #1a1e23;
+  color: #81a1c1;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-family: 'Fira Mono', monospace;
+  white-space: pre-wrap;
+  user-select: text;
+}
+</style>
+</head>
+<body>
+<h1>Command Explorer</h1>
+<div id="main-container">
+  <input type="text" id="commandInput" placeholder="Enter shell command" />
+  <button onclick="explainCommand()">Explain</button>
+  <pre id="result"></pre>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
