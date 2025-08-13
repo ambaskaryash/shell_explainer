@@ -120,6 +120,42 @@ h3 {
   white-space: pre-wrap;
   user-select: text;
 }
+#command-categories {
+  max-width: 780px;
+  margin: 30px auto;
+  background: #23272d;
+  padding: 20px 30px;
+  border-radius: 8px;
+  border-left: 6px solid #57aaff;
+  box-shadow: 0 4px 32px rgba(64, 110, 205, 0.12);
+  color: #ccc;
+}
+
+#command-categories h2 {
+  margin-bottom: 16px;
+  color: #8ccfff;
+}
+
+.categories button, .cmd-sample {
+  background: #1a1e23;
+  color: #57aaff;
+  border: 1px solid #57aaff;
+  margin: 6px 8px 6px 0;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: 'Fira Mono', monospace;
+}
+
+.categories button:hover, .cmd-sample:hover {
+  background: #57aaff;
+  color: #182631;
+}
+.categories button:focus, .cmd-sample:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(87, 170, 255, 0.5);
+}
 </style>
 </head>
 <body>
@@ -128,6 +164,17 @@ h3 {
   <input type="text" id="commandInput" placeholder="Enter shell command" />
   <button onclick="explainCommand()">Explain</button>
   <pre id="result"></pre>
+<div id="command-categories">
+  <h2>Command Categories</h2>
+  <div class="categories">
+    <button onclick="showCategory('linux')">Linux</button>
+    <button onclick="showCategory('windows')">Windows</button>
+    <button onclick="showCategory('macos')">macOS</button>
+    <button onclick="showCategory('devops')">DevOps Tools</button>
+    <button onclick="showCategory('network')">Networking</button>
+  </div>
+  <div id="category-commands" style="margin-top:16px;"></div>
+</div>
 </div>
 <script src="app.js"></script>
 </body>

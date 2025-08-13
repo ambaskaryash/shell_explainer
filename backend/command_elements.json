@@ -194,304 +194,470 @@
       "ssh -i ~/.ssh/id_rsa user@host        # Connect using specific key"
     ]
   },
-  "docker": {
-    "description": "Manage Docker containers and images.",
+  "apt": {
+    "description": "Command-line interface for the package management system in Debian-based Linux distributions.",
     "flags": {
-      "run": "Run a command in a new container.",
-      "build": "Build an image from a Dockerfile.",
-      "pull": "Download an image from a registry.",
-      "push": "Upload an image to a registry.",
-      "ps": "List running containers.",
-      "-d": "Run container in detached mode (background).",
-      "-p": "Publish container's port(s) to the host."
+      "update": "Update package index files.",
+      "upgrade": "Upgrade all upgradable packages.",
+      "install": "Install new packages.",
+      "remove": "Remove packages."
     },
     "usage": [
-      "docker run -d -p 80:80 nginx           # Run nginx container in background",
-      "docker build -t myimage .              # Build image from Dockerfile",
-      "docker ps                             # List running containers"
+      "apt update                      # Update available package lists",
+      "apt upgrade                     # Upgrade all installed packages",
+      "apt install nginx               # Install nginx web server",
+      "apt remove apache2              # Remove Apache server"
     ]
   },
-  "docker-compose": {
-    "description": "Define and run multi-container Docker applications.",
+  "apt-get": {
+    "description": "Lower-level package management command for Debian and Ubuntu systems.",
     "flags": {
-      "up": "Create and start containers.",
-      "down": "Stop and remove containers, networks, images.",
-      "build": "Build or rebuild services.",
-      "logs": "View output from containers.",
-      "-d": "Run in detached mode.",
-      "--build": "Build images before starting containers."
+      "update": "Update package lists.",
+      "upgrade": "Perform package upgrades.",
+      "install": "Install specified package(s).",
+      "remove": "Remove specified package(s)."
     },
     "usage": [
-      "docker-compose up -d                    # Start containers in background",
-      "docker-compose build                    # Build or rebuild services",
-      "docker-compose logs                     # View logs of containers"
+      "apt-get update                  # Update package database",
+      "apt-get upgrade                # Upgrade installed packages",
+      "apt-get install curl           # Install curl utility",
+      "apt-get remove vim             # Remove vim editor"
     ]
   },
-  "kubectl": {
-    "description": "Control the Kubernetes cluster manager.",
+  "ipconfig": {
+    "description": "Windows command to display current TCP/IP network configuration values.",
     "flags": {
-      "get": "List resources.",
-      "describe": "Show detailed info about a resource.",
-      "apply": "Apply declarative configuration to resources.",
-      "delete": "Delete resources by filename or resource name.",
-      "-n": "Specify the namespace.",
-      "-f": "Filename or directory containing resource descriptions."
+      "/all": "Display detailed all configuration information.",
+      "/release": "Release the current DHCP IP address lease.",
+      "/renew": "Renew the DHCP IP address lease."
     },
     "usage": [
-      "kubectl get pods                       # List pods in current namespace",
-      "kubectl describe service myservice    # Detailed info about a service",
-      "kubectl apply -f deployment.yaml      # Apply configuration file"
+      "ipconfig                       # Display basic IP info",
+      "ipconfig /all                  # Show full network config",
+      "ipconfig /release              # Release IP address",
+      "ipconfig /renew                # Obtain new IP address"
     ]
   },
-  "ansible": {
-    "description": "Automate configuration management, application deployment and task execution.",
+  "ifconfig": {
+    "description": "Unix and Linux command to configure network interfaces.",
     "flags": {
-      "-i": "Specify inventory host file.",
-      "-m": "Module name to execute.",
-      "-a": "Module arguments.",
-      "--check": "Run in dry-run mode without making changes.",
-      "--diff": "Show changes made by tasks."
+      "-a": "Display all interfaces, even if down.",
+      "up": "Activate the interface.",
+      "down": "Deactivate the interface."
     },
     "usage": [
-      "ansible all -m ping -i hosts.ini       # Test connectivity",
-      "ansible-playbook site.yaml             # Run playbook",
-      "ansible all -m shell -a 'uptime'       # Run uptime on all hosts"
+      "ifconfig                      # Show active interfaces",
+      "ifconfig -a                   # Show all interfaces",
+      "ifconfig eth0 up              # Bring interface eth0 up",
+      "ifconfig eth0 down            # Bring interface eth0 down"
     ]
   },
-  "gh": {
-    "description": "GitHub command-line tool to manage GitHub operations.",
+  "dir": {
+    "description": "Windows command to list directory contents.",
     "flags": {
-      "repo": "Manage GitHub repositories.",
-      "issue": "Manage GitHub issues.",
-      "pr": "Manage GitHub pull requests.",
-      "auth": "Authenticate with GitHub.",
-      "clone": "Clone a repository.",
-      "create": "Create a new repository or gist.",
-      "-R": "Specify the repository.",
-      "--web": "Open resource in web browser."
+      "/A": "Show files with specified attributes.",
+      "/P": "Pause after each screenful of information.",
+      "/W": "Wide list format."
     },
     "usage": [
-      "gh repo clone owner/repo                 # Clone a GitHub repo",
-      "gh issue list                            # List issues",
-      "gh pr create                            # Create a pull request"
+      "dir                          # List files in current directory",
+      "dir /A:H                     # Show hidden files",
+      "dir /W                       # List files in wide format"
     ]
   },
-  "helm": {
-    "description": "Manage Kubernetes Helm charts for package management.",
+  "tasklist": {
+    "description": "Windows command to list currently running processes.",
     "flags": {
-      "install": "Install a Helm chart.",
-      "upgrade": "Upgrade a release.",
-      "rollback": "Roll back a release to a previous revision.",
-      "list": "List releases.",
-      "-f": "Specify values in a YAML file or URL.",
-      "--namespace": "Set the namespace scope for the request."
+      "/S": "Connect to a remote system.",
+      "/FI": "Filter tasks by criteria."
     },
     "usage": [
-      "helm install myrelease mychart            # Install a chart",
-      "helm upgrade myrelease mychart            # Upgrade a chart",
-      "helm rollback myrelease 1                 # Roll back to revision 1"
+      "tasklist                    # List running processes",
+      "tasklist /FI \"STATUS eq RUNNING\"    # List only running processes"
     ]
   },
-  "top": {
-    "description": "Display Linux tasks and resource usage.",
+  "defaults": {
+    "description": "macOS command-line interface for user defaults system.",
     "flags": {
-      "-d": "Set delay between screen updates.",
-      "-p": "Monitor specific process IDs.",
-      "-u": "Display processes for a specific user."
+      "write": "Write a value to a user defaults domain.",
+      "read": "Read a key from a domain."
     },
     "usage": [
-      "top                                     # Show running processes",
-      "top -d 5                                # Update every 5 seconds",
-      "top -u root                            # Show processes for root user"
+      "defaults write com.apple.finder AppleShowAllFiles YES    # Show hidden files in Finder",
+      "defaults read com.apple.finder AppleShowAllFiles         # Check value"
     ]
   },
-  "htop": {
-    "description": "Interactive process viewer and manager.",
+  "brew": {
+    "description": "Popular macOS package manager.",
     "flags": {
-      "-d": "Set delay between updates.",
-      "-p": "Monitor specific process IDs.",
-      "-u": "Filter by user."
+      "install": "Install software packages.",
+      "update": "Update Homebrew and formulae.",
+      "upgrade": "Upgrade installed packages.",
+      "remove": "Delete installed packages."
     },
     "usage": [
-      "htop                                    # Open interactive process viewer",
-      "htop -p 1234                            # Monitor PID 1234",
-      "htop -u root                           # Filter by root user"
+      "brew install wget             # Install wget utility",
+      "brew update                  # Update Homebrew formulae",
+      "brew upgrade                 # Upgrade all packages",
+      "brew remove wget             # Remove wget"
     ]
   },
-  "strace": {
-    "description": "Trace system calls and signals.",
+  "open": {
+    "description": "macOS command to open files and applications.",
     "flags": {
-      "-p": "Trace a running process by PID.",
-      "-e": "Filter to trace specified system calls.",
-      "-o": "Write trace output to the specified file."
+      "-a": "Open with a specified application."
     },
     "usage": [
-      "strace -p 1234                          # Trace process with PID 1234",
-      "strace -e open,read,write ls            # Trace specific syscalls during ls",
-      "strace -o output.txt ls                  # Save output to a file"
+      "open -a Safari               # Open web browser Safari",
+      "open README.md              # Open README.md in default editor"
     ]
   },
-  "lsof": {
-    "description": "List open files.",
+  "ping": {
+    "description": "Send ICMP echo request packets to network hosts for connectivity tests.",
     "flags": {
-      "-i": "Show files related to Internet connections.",
-      "-p": "List open files for a process ID.",
-      "-n": "Do not resolve hostnames."
+      "-c": "Specify the number of packets to send.",
+      "-i": "Set interval between packets.",
+      "-t": "Specify IP packet Time-To-Live."
     },
     "usage": [
-      "lsof -i                                # List open Internet connections",
-      "lsof -p 1234                          # List open files for PID 1234",
-      "lsof -n                               # Show numeric addresses without DNS"
+      "ping google.com              # Ping google indefinitely",
+      "ping -c 4 google.com         # Send 4 packets",
+      "ping -i 2 google.com         # Send a packet every 2 seconds"
     ]
   },
-  "netstat": {
-    "description": "Print network connections, routing tables, interface statistics.",
+  "traceroute": {
+    "description": "Show the route packets take to a network host.",
     "flags": {
-      "-t": "Show TCP connections.",
-      "-u": "Show UDP connections.",
-      "-l": "Show listening sockets.",
-      "-p": "Show process ID using socket."
+      "-m": "Set maximum number of hops.",
+      "-q": "Set number of queries per hop."
     },
     "usage": [
-      "netstat -tulnp                       # Show all listening TCP/UDP ports with process IDs",
-      "netstat -r                          # Show routing table",
-      "netstat -i                          # Show network interfaces"
+      "traceroute google.com        # Trace route to google.com",
+      "traceroute -m 15 google.com  # Limit max hops to 15"
     ]
   },
-  "ip": {
-    "description": "Show/manipulate routing, devices, policy routing and tunnels.",
-    "flags": {
-      "addr": "Show/manipulate IP addresses.",
-      "link": "Show/manipulate network interfaces.",
-      "route": "Show/manipulate routing tables."
-    },
+  "whoami": {
+    "description": "Display the current logged in user.",
+    "flags": {},
     "usage": [
-      "ip addr show                        # Show IP addresses",
-      "ip link set eth0 up                 # Enable interface eth0",
-      "ip route add default via 192.168.1.1 # Add default route"
-    ]
-  },
-  "journalctl": {
-    "description": "Query and display messages from the journal.",
-    "flags": {
-      "-u": "Show logs for a specific systemd unit.",
-      "-f": "Follow the journal.",
-      "-n": "Show last N lines."
-    },
-    "usage": [
-      "journalctl -u nginx.service          # Show logs for nginx",
-      "journalctl -f                      # Follow logs live",
-      "journalctl -n 100                  # Show last 100 lines"
-    ]
-  },
-  "ss": {
-    "description": "Dump socket statistics.",
-    "flags": {
-      "-t": "Display TCP sockets.",
-      "-u": "Display UDP sockets.",
-      "-p": "Show process using socket.",
-      "-l": "Show listening sockets."
-    },
-    "usage": [
-      "ss -tulnp                         # Show all listening TCP/UDP ports with process info",
-      "ss -s                            # Summary statistics"
+      "whoami                      # Show current user name"
     ]
   },
   "uptime": {
-    "description": "Show how long the system has been running.",
+    "description": "Show system uptime and load averages.",
     "flags": {},
     "usage": [
-      "uptime                           # Display current time, uptime, users, and load average"
+      "uptime                      # Display how long system has been running"
     ]
   },
-  "free": {
-    "description": "Display amount of free and used memory in the system.",
+  "clear": {
+    "description": "Clear the terminal screen.",
+    "flags": {},
+    "usage": [
+      "clear                       # Clear console content"
+    ]
+  },
+  "history": {
+    "description": "Display the command history.",
     "flags": {
-      "-h": "Show memory in human-readable format.",
-      "-m": "Display memory in megabytes."
+      "-c": "Clear the history list.",
+      "-d": "Delete a specific entry from the history."
     },
     "usage": [
-      "free -h                         # Show memory usage with human readable units",
-      "free -m                         # Show memory usage in MB"
+      "history                     # Show command history",
+      "history -c                  # Clear command history",
+      "history -d 10               # Delete the 10th entry from history"
     ]
   },
-  "vmstat": {
-    "description": "Report virtual memory statistics.",
-    "flags": {},
-    "usage": [
-      "vmstat                          # Display memory, CPU, and IO information"
-    ]
-  },
-  "iostat": {
-    "description": "Report CPU and device I/O statistics.",
+  "alias": {
+    "description": "Create shortcuts for commands.",
     "flags": {
-      "-x": "Display extended statistics.",
-      "-d": "Display device utilization."
+      "-p": "Print all defined aliases.",
+      "-d": "Delete an alias."
     },
     "usage": [
-      "iostat -x                      # Extended IO statistics",
-      "iostat -d                      # Show device utilization"
+      "alias ll='ls -l'            # Create an alias for 'ls -l'",
+      "alias -p                    # Print all aliases",
+      "unalias ll                  # Remove the alias 'll'"
     ]
   },
-  "tcpdump": {
-    "description": "Command-line packet analyzer.",
+  "wget": {
+    "description": "Non-interactive network downloader.",
     "flags": {
-      "-i": "Listen on a specific interface.",
-      "-n": "Do not resolve hostnames.",
-      "-c": "Stop after capturing N packets.",
-      "-w": "Write raw packets to file."
+      "-O": "Write documents to FILE instead of standard output.",
+      "-c": "Continue getting a partially-downloaded file.",
+      "-q": "Quiet mode, no output.",
+      "-r": "Recursive download.",
+      "-p": "Download all necessary files for displaying HTML pages."
     },
     "usage": [
-      "tcpdump -i eth0 -n -c 10       # Capture 10 packets on eth0 without resolving names",
-      "tcpdump -w packets.pcap         # Write packets to file"
+      "wget http://example.com/file.zip          # Download a file",
+      "wget -O myfile.zip http://example.com/file.zip  # Save as myfile.zip",
+      "wget -c http://example.com/largefile.zip  # Continue download of a large file",
+      "wget -r http://example.com/dir/           # Recursively download a directory",
+      "wget -p http://example.com/page.html       # Download all files needed to display the page"
     ]
   },
-  "watch": {
-    "description": "Run a program periodically, showing output fullscreen.",
+  "scp": {
+    "description": "Securely copy files between hosts on a network.",
     "flags": {
-      "-n": "Set interval between command executions.",
-      "-d": "Highlight differences between updates."
+      "-r": "Copy directories recursively.",
+      "-P": "Specify the port to connect to on the remote host.",
+      "-i": "Select the identity file (private key) for authentication."
     },
     "usage": [
-      "watch -n 5 'ls -l'              # Run ls -l every 5 seconds",
-      "watch -d 'cat /proc/meminfo'    # Highlight changes in memory info"
+      "scp file.txt user@remote:/path/to/destination/  # Copy file to remote host",
+      "scp -r folder/ user@remote:/path/to/destination/  # Copy directory to remote host",
+      "scp -P 2222 file.txt user@remote:/path/to/destination/  # Copy file using a specific port",
+      "scp -i ~/.ssh/id_rsa file.txt user@remote:/path/to/destination/  # Copy file using a specific identity file"
     ]
   },
-  "windows": {
-    "description": "Windows commands and utilities.",
-    "flags": {},
+  "rsync": {
+    "description": "Synchronize files and directories between two locations.",
+    "flags": {
+      "-a": "Archive mode; equals -rlptgoD (no -H,-A, -X).",
+      "-v": "Verbose output.",
+      "-z": "Compress file data during transfer.",
+      "--delete": "Delete files that don't exist on the source."
+    },
     "usage": [
-      "dir                            # List directory contents",
-      "ipconfig                      # Display IP configuration",
-      "tasklist                     # List running processes",
-      "netstat -an                  # Show all active connections and listening ports"
+      "rsync -avz source/ destination/          # Sync files with compression",
+      "rsync -avz --delete source/ destination/  # Sync files and delete extra files in destination",
+      "rsync -avz --progress source/ destination/  # Show progress during transfer"
     ]
   },
-  "powershell": {
-    "description": "PowerShell commands.",
-    "flags": {},
+  "git": {
+    "description": "Version control system to track changes in source code during software development.",
+    "flags": {
+      "clone": "Clone a repository into a new directory.",
+      "commit": "Record changes to the repository.",
+      "push": "Update remote refs along with associated objects.",
+      "pull": "Fetch from and integrate with another repository or a local branch.",
+      "status": "Show the working tree status.",
+      "branch": "List, create, or delete branches."
+    },
     "usage": [
-      "Get-Process                  # List all running processes",
-      "Get-Service                  # List system services",
-      "Set-ExecutionPolicy         # Change script execution policies"
+      "git clone <repository-url>    # Clone a repository",
+      "git commit -m 'Initial commit'  # Commit changes with a message",
+      "git push origin main            # Push changes to the remote repository",
+      "git pull origin main            # Pull changes from the remote repository",
+      "git status                      # Check the status of the working directory",
+      "git branch                      # List all branches"
     ]
   },
-  "macos": {
-    "description": "Common Mac OS terminal commands.",
-    "flags": {},
+  "docker": {
+    "description": "Platform for developing, shipping, and running applications in containers.",
+    "flags": {
+      "run": "Run a command in a new container.",
+      "build": "Build an image from a Dockerfile.",
+      "ps": "List running containers.",
+      "images": "List images.",
+      "exec": "Execute a command in a running container."
+    },
     "usage": [
-      "defaults write com.apple.finder AppleShowAllFiles YES  # Show hidden files in Finder",
-      "brew install <package>                              # Install package via Homebrew",
-      "open -a Safari                                    # Open Safari browser"
+      "docker run -d nginx                # Run nginx in detached mode",
+      "docker build -t myapp .            # Build an image from Dockerfile",
+      "docker ps                          # List all running containers",
+      "docker images                      # List all Docker images",
+      "docker exec -it mycontainer bash   # Execute bash in a running container"
     ]
   },
-  "shell": {
-    "description": "Common Unix/Linux shell commands.",
-    "flags": {},
+  "mysql": {
+    "description": "Command-line tool for managing MySQL databases.",
+    "flags": {
+      "-u": "Specify the MySQL user.",
+      "-p": "Prompt for the MySQL user password.",
+      "-h": "Specify the MySQL host.",
+      "-e": "Execute a query and exit.",
+      "--database": "Select a specific database to use."
+    },
     "usage": [
-      "echo 'hello world'                              # Print text to console",
-      "history                                         # Show command history",
-      "alias ll='ls -l'                               # Create command alias"
+      "mysql -u root -p                  # Connect to MySQL as root user",
+      "mysql -u user -p -h localhost      # Connect to MySQL on localhost",
+      "mysql -u user -p -e 'SHOW DATABASES;'  # Execute a query and exit",
+      "mysql -u user -p --database=mydb   # Connect to a specific database"
+    ]
+  },
+  "psql": {
+    "description": "Command-line interface for PostgreSQL databases.",
+    "flags": {
+      "-U": "Specify the PostgreSQL user.",
+      "-h": "Specify the PostgreSQL host.",
+      "-d": "Connect to a specific database.",
+      "-c": "Execute a command and exit."
+    },
+    "usage": [
+      "psql -U postgres -h localhost       # Connect to PostgreSQL as postgres user",
+      "psql -U user -d mydb -h localhost   # Connect to a specific database",
+      "psql -U user -c 'SELECT * FROM table;'  # Execute a command and exit",
+      "psql -U user -d mydb -h localhost -c 'CREATE TABLE new_table (id SERIAL PRIMARY KEY);'  # Create a new table"
+    ]
+  },
+  "mongo": {
+    "description": "Command-line interface for MongoDB databases.",
+    "flags": {
+      "-u": "Specify the MongoDB user.",
+      "-p": "Prompt for the MongoDB user password.",
+      "--host": "Specify the MongoDB host.",
+      "--port": "Specify the MongoDB port.",
+      "--eval": "Execute a JavaScript expression and exit."
+    },
+    "usage": [
+      "mongo -u admin -p password --host localhost --port 27017  # Connect to MongoDB",
+      "mongo --eval 'db.getCollectionNames();'  # Execute a command and exit",
+      "mongo --host localhost --port 27017 mydb --eval 'db.users.find();'  # Query a specific database"
+    ]
+  },
+  "redis-cli": {
+    "description": "Command-line interface for interacting with Redis databases.",
+    "flags": {
+      "-h": "Specify the Redis host.",
+      "-p": "Specify the Redis port.",
+      "-a": "Authenticate with the specified password.",
+      "--eval": "Execute a Lua script."
+    },
+    "usage": [
+      "redis-cli -h localhost -p 6379 -a password  # Connect to Redis",
+      "redis-cli --eval script.lua key1 key2  # Execute a Lua script",
+      "redis-cli -h localhost -p 6379 --eval 'return redis.call(\"PING\")'  # Ping the Redis server"
+    ]
+  },
+  "sqlite3": {
+    "description": "Command-line interface for SQLite databases.",
+    "flags": {
+      "-header": "Display column headers in the output.",
+      "-column": "Format output as columns.",
+      "-batch": "Run in batch mode, no interactive prompts.",
+      "-init": "Execute commands from a file before entering the interactive mode."
+    },
+    "usage": [
+      "sqlite3 mydatabase.db              # Open or create a SQLite database",
+      "sqlite3 mydatabase.db -header -column -batch  # Open database with formatted output",
+      "sqlite3 mydatabase.db -init init.sql  # Execute commands from a file",
+      "sqlite3 mydatabase.db 'SELECT * FROM users;'  # Execute a query"
+    ]
+  },
+  "firewall-cmd": {
+    "description": "Command-line interface for managing the firewall in Linux systems using firewalld.",
+    "flags": {
+      "--zone": "Specify the zone to operate on.",
+      "--add-port": "Add a port to the specified zone.",
+      "--remove-port": "Remove a port from the specified zone.",
+      "--list-all": "List all rules in the specified zone.",
+      "--set-default-zone": "Set the default zone."
+    },
+    "usage": [
+      "firewall-cmd --zone=public --add-port=80/tcp  # Add HTTP port to public zone",
+      "firewall-cmd --zone=public --remove-port=80/tcp  # Remove HTTP port from public zone",
+      "firewall-cmd --zone=public --list-all  # List all rules in public zone",
+      "firewall-cmd --set-default-zone=public  # Set public as the default zone"
+    ]
+  },
+  "iptables": {
+    "description": "Command-line utility for configuring the Linux kernel firewall.",
+    "flags": {
+      "-L": "List all rules in the selected chain.",
+      "-A": "Append a rule to the end of the selected chain.",
+      "-D": "Delete a rule from the selected chain.",
+      "-I": "Insert a rule at the top of the selected chain.",
+      "-F": "Flush all rules in the selected chain."
+    },
+    "usage": [
+      "iptables -L                          # List all firewall rules",
+      "iptables -A INPUT -p tcp --dport 22 -j ACCEPT  # Allow SSH traffic",
+      "iptables -D INPUT -p tcp --dport 22 -j ACCEPT  # Remove SSH rule",
+      "iptables -I INPUT 1 -p tcp --dport 80 -j ACCEPT  # Insert rule to allow HTTP traffic at the top",
+      "iptables -F INPUT                     # Flush all rules in the INPUT chain"
+    ]
+  },
+  "nmap": {
+    "description": "Network exploration tool and security/port scanner.",
+    "flags": {
+      "-sS": "TCP SYN scan.",
+      "-sU": "UDP scan.",
+      "-p": "Specify port(s) to scan.",
+      "-O": "Enable OS detection.",
+      "-A": "Enable OS detection, version detection, script scanning, and traceroute."
+    },
+    "usage": [
+      "nmap -sS -p 22,80,443 example.com  # Perform a SYN scan on specified ports",
+      "nmap -sU -p 53 example.com         # Perform a UDP scan on port 53",
+      "nmap -O example.com                 # Enable OS detection",
+      "nmap -A example.com                 # Enable OS detection, version detection, script scanning, and traceroute"
+    ]
+  },
+  "htop": {
+    "description": "Interactive process viewer for Unix systems.",
+    "flags": {
+      "-d": "Set delay between updates in tenths of seconds.",
+      "-u": "Show processes for a specific user.",
+      "-s": "Sort processes by a specific field."
+    },
+    "usage": [
+      "htop                             # Start htop with default settings",
+      "htop -d 10                        # Set update delay to 1 second",
+      "htop -u username                  # Show processes for a specific user",
+      "htop -s MEM                       # Sort processes by memory usage"
+    ]
+  },
+  "journalctl": {
+    "description": "Query the systemd journal.",
+    "flags": {
+      "-u": "Show logs for a specific unit.",
+      "-f": "Follow the log output.",
+      "--since": "Show logs since a specific time.",
+      "--until": "Show logs until a specific time."
+    },
+    "usage": [
+      "journalctl -u nginx                # Show logs for nginx service",
+      "journalctl -f                      # Follow the latest log entries",
+      "journalctl --since '2023-10-01'    # Show logs since October 1, 2023",
+      "journalctl --until '1 hour ago'    # Show logs until one hour ago"
+    ]
+  },
+  "systemd-analyze": {
+    "description": "Analyze and debug systemd services.",
+    "flags": {
+      "blame": "Show time taken by each service to start.",
+      "critical-chain": "Show the critical chain of services that delayed boot.",
+      "plot": "Generate a plot of the boot process.",
+      "time": "Show the total time taken to boot."
+    },
+    "usage": [
+      "systemd-analyze blame              # Show time taken by each service",
+      "systemd-analyze critical-chain     # Show critical chain of services",
+      "systemd-analyze plot > boot.svg    # Generate a plot of the boot process",
+      "systemd-analyze time                # Show total boot time"
+    ]
+  },
+  "systemd-cgls": {
+    "description": "Show control groups in a tree format.",
+    "flags": {
+      "-u": "Show only units in the specified control group.",
+      "-r": "Show the tree in a raw format.",
+      "-p": "Show the process IDs in the tree."
+    },
+    "usage": [
+      "systemd-cgls                      # Show control groups in a tree format",
+      "systemd-cgls -u nginx             # Show control groups for nginx service",
+      "systemd-cgls -r                   # Show raw format of control groups",
+      "systemd-cgls -p                   # Show process IDs in the tree"
+    ]
+  },
+  "systemd-cgtop": {
+    "description": "Display control groups and their resource usage.",
+    "flags": {
+      "-n": "Set the number of iterations before exiting.",
+      "-b": "Run in batch mode.",
+      "-p": "Show process IDs in the output.",
+      "-u": "Show only units in the specified control group."
+    },
+    "usage": [
+      "systemd-cgtop                     # Display control groups and their resource usage",
+      "systemd-cgtop -n 10               # Run for 10 iterations",
+      "systemd-cgtop -b                  # Run in batch mode",
+      "systemd-cgtop -p                  # Show process IDs in the output",
+      "systemd-cgtop -u nginx            # Show only units in the nginx control group"
     ]
   }
 }
