@@ -59,7 +59,7 @@ async function explainCommand() {
   resultEl.textContent = "Loading...";
 
   // Backend server IP and port for API calls
-  const SERVER_IP = "65.0.193.14";
+  const SERVER_IP = "localhost";
   const SERVER_PORT = "5000"; // Change if your backend runs on a different port
 
   try {

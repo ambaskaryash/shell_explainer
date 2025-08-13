@@ -659,5 +659,81 @@
       "systemd-cgtop -p                  # Show process IDs in the output",
       "systemd-cgtop -u nginx            # Show only units in the nginx control group"
     ]
+  },
+  "github.com": {
+    "description": "GitHub CLI for managing GitHub repositories and issues.",
+    "flags": {
+      "repo": "Specify the repository to operate on.",
+      "issue": "Manage issues in the specified repository.",
+      "pr": "Manage pull requests in the specified repository.",
+      "auth": "Authenticate with GitHub."
+    },
+    "usage": [
+      "gh repo clone owner/repo          # Clone a GitHub repository",
+      "gh issue list --repo owner/repo    # List issues in a repository",
+      "gh pr create --repo owner/repo     # Create a new pull request",
+      "gh auth login                      # Authenticate with GitHub"
+    ]
+  },
+  "netstat -tulnp": {
+    "description": "Display network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.",
+    "flags": {
+      "-t": "Show TCP ports.",
+      "-u": "Show UDP ports.",
+      "-l": "Show only listening sockets.",
+      "-n": "Show numerical addresses instead of resolving hostnames.",
+      "-p": "Show the process ID and name of the program to which each socket belongs."
+    },
+    "usage": [
+      "netstat -tulnp                     # Show all listening TCP and UDP ports with process info",
+      "netstat -tuln                       # Show listening ports without resolving hostnames"
+    ]
+  },
+  "wget": {
+    "description": "Non-interactive network downloader.",
+    "flags": {
+      "-O": "Write documents to FILE instead of standard output.",
+      "-c": "Continue getting a partially-downloaded file.",
+      "-q": "Quiet mode, no output.",
+      "-r": "Recursive download.",
+      "-p": "Download all necessary files for displaying HTML pages."
+    },
+    "usage": [
+      "wget http://example.com/file.zip          # Download a file",
+      "wget -O myfile.zip http://example.com/file.zip  # Save as myfile.zip",
+      "wget -c http://example.com/largefile.zip  # Continue download of a large file",
+      "wget -r http://example.com/dir/           # Recursively download a directory",
+      "wget -p http://example.com/page.html       # Download all files needed to display the page"
+    ]
+  },
+  "tar": {
+    "description": "Archive or extract files from an archive file called a tarball.",
+    "flags": {
+      "x": "Extract files from an archive.",
+      "z": "Filter the archive through gzip compression.",
+      "v": "Verbosity: list files processed.",
+      "f": "Use archive file or device ARCHIVE.",
+      "-C": "Change to directory DIR before performing any operations."
+    },
+    "usage": [
+      "tar czvf archive.tar.gz folder/         # Create gzipped archive of folder",
+      "tar xzvf archive.tar.gz                  # Extract archive contents",
+      "tar -tf archive.tar.gz                   # List contents of archive"
+    ]
+  },
+  "netstat": {
+    "description": "Network statistics command to display network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.",
+    "flags": {
+      "-a": "Show all sockets (listening and non-listening).",
+      "-t": "Show TCP sockets.",
+      "-u": "Show UDP sockets.",
+      "-n": "Show numerical addresses instead of resolving hostnames.",
+      "-p": "Show the process ID and name of the program to which each socket belongs."
+    },
+    "usage": [
+      "netstat -atn                       # Show all TCP sockets with numerical addresses",
+      "netstat -aun                       # Show all UDP sockets with numerical addresses",
+      "netstat -tulnp                     # Show all listening TCP and UDP ports with process info"
+    ]
   }
 }
