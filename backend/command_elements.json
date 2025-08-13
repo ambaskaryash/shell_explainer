@@ -735,5 +735,45 @@
       "netstat -aun                       # Show all UDP sockets with numerical addresses",
       "netstat -tulnp                     # Show all listening TCP and UDP ports with process info"
     ]
-  }
+  },
+  "cp": {
+  "description": "Copy files or directories.",
+  "flags": {
+    "-r": "Copy directories recursively.",
+    "-i": "Prompt before overwrite.",
+    "-u": "Copy only when the source file is newer than the destination or when the destination is missing.",
+    "-v": "Verbose mode, show files as they are copied."
+  },
+  "usage": [
+    "cp file.txt /path/to/destination/             # Copy file to destination",
+    "cp -r folder /path/to/destination/            # Copy folder recursively",
+    "cp -iv file.txt /path/to/destination/         # Prompt before overwrite and show files"
+  ]
+},
+"mv": {
+  "description": "Move or rename files or directories.",
+  "flags": {
+    "-i": "Prompt before overwrite.",
+    "-u": "Move only when the source file is newer than the destination or when the destination is missing.",
+    "-v": "Verbose mode, show files as they are moved."
+  },
+  "usage": [
+    "mv file.txt /path/to/destination/             # Move file to destination",
+    "mv oldname.txt newname.txt                    # Rename file",
+    "mv -iv file.txt /path/to/destination/         # Prompt before overwrite and show files"
+  ]
+},
+"touch": {
+  "description": "Create empty files or update file timestamps.",
+  "flags": {
+    "-c": "Do not create any files; only change existing files.",
+    "-t": "Set the specified timestamp instead of the current time."
+  },
+  "usage": [
+    "touch file.txt                                 # Create an empty file",
+    "touch file1.txt file2.txt                      # Create multiple files",
+    "touch -c file.txt                              # Update timestamp without creating if missing"
+  ]
+}
+
 }

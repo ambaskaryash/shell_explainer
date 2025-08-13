@@ -8,6 +8,6 @@ RUN pip install -r requirements.txt
 COPY app.py .
 COPY command_elements.json .
 
-EXPOSE 5001
+EXPOSE 5000
 
 CMD ["python", "app.py"]
